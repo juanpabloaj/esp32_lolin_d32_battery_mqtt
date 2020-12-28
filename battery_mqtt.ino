@@ -32,22 +32,7 @@ void setup() {
 
   setup_wifi();
   client.setServer(mqtt_server, 1883);
-}
 
-void mqttReconnect() {
-  while(!client.connected()) {
-    Serial.print("attempting MQTT connection ...");
-
-    if(client.connect("esp32Client")) {
-      Serial.println("connected");
-    } else {
-      Serial.println(" try again in 5 seconds");
-      delay(5000);
-    }
-  }
-}
-
-void loop() {
   if (!client.connected()) {
     mqttReconnect();
   }
@@ -63,5 +48,33 @@ void loop() {
   digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
 
-  delay(60000);
+  beginSleep(getSleepTimer());
+}
+
+void loop() {}
+
+void mqttReconnect() {
+  while(!client.connected()) {
+    Serial.print("attempting MQTT connection ...");
+
+    if(client.connect("esp32Client")) {
+      Serial.println("connected");
+    } else {
+      Serial.println(" try again in 5 seconds");
+      delay(5000);
+    }
+  }
+}
+
+
+long getSleepTimer() {
+  long sleepDurationMinutes = 2;
+  int currentHour = 0, currentMin = 0, currentSec = 0;
+  return (sleepDurationMinutes * 60 - ((currentMin % sleepDurationMinutes) * 60 + currentSec)) +5;
+}
+
+void beginSleep(long sleepTimer) {
+  esp_sleep_pd_config(ESP_PD_DOMAIN_RTC_PERIPH, ESP_PD_OPTION_OFF);
+  esp_sleep_enable_timer_wakeup(sleepTimer * 1000000LL);
+  esp_deep_sleep_start();
 }
