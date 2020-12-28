@@ -6,9 +6,19 @@ Before compile, create `configuration.h` file with
     const char *password = "";
     const char *mqtt_server = "";
 
+## Solar panel
+
+Connect the solar panel to D32
+
+    + -> USB
+    - -> GND
+
+More details in [G6EJD - Solar Power for Projects (Arduino/ESP8266/ESP32)](https://www.youtube.com/watch?v=gcbzdtRmYrM)
+
 ## Components
 
 * [Lolin D32](https://www.wemos.cc/en/latest/d32/d32.html)
+* [Solar Panel 80x100mm 1W](https://www.seeedstudio.com/1W-Solar-Panel-80X100.html)
 
 ## Free public MQTT brokers
 
