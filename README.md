@@ -19,6 +19,7 @@ More details in [G6EJD - Solar Power for Projects (Arduino/ESP8266/ESP32)](https
 
 * [Lolin D32](https://www.wemos.cc/en/latest/d32/d32.html)
 * [Solar Panel 80x100mm 1W](https://www.seeedstudio.com/1W-Solar-Panel-80X100.html)
+* Lithium Ion Battery - 850mAh
 
 ## Free public MQTT brokers
 
