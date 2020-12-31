@@ -1,5 +1,7 @@
 # Battery voltage and MQTT
 
+![D32_solar_panel](https://i.imgur.com/LX6w0Id.jpeg)
+
 Before compile, create `configuration.h` file with
 
     const char *ssid = "";
