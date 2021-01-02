@@ -2,7 +2,9 @@
 
 ![D32_solar_panel](https://i.imgur.com/LX6w0Id.jpeg)
 
-Before compile, create `configuration.h` file with
+## Build
+
+Before compile, create `configuration.h` file with these lines (fill with your information, WIFI password, etc)
 
     const char *ssid = "";
     const char *password = "";
